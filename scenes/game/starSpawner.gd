@@ -12,7 +12,7 @@ export var spawnSizeRange = Vector2(0.75, 1.5)
 # The range of colors ( from black == 0.0 to white == 1.0 )
 export var spawnColorRange = Vector2(0.0, 1.0)
 # The star size
-export var starSize = Vector2(50,100)
+export var starBaseSize = Vector2(50,100)
 # The star speed range
 export var starSpeedRange = Vector2(1.0, 5.0)
 
@@ -41,9 +41,9 @@ func _spawnStar():
 	var starSpeed = rand_range(starSpeedRange.x, starSpeedRange.y)
 	var starGreyScale = rand_range(spawnColorRange.x, spawnColorRange.y)
 	var starColor = Color(starGreyScale, starGreyScale, starGreyScale)
-	#var starSize = starSize
-	var initPosition = Vector2(rand_range( 0.0, OS.get_window_size().x ), 0)
-	var yLimit = OS.get_window_size().y
+	var starSize = starBaseSize*rand_range(spawnSizeRange.x, spawnSizeRange.y)
+	var initPosition = Vector2(rand_range( 0.0, OS.get_window_size().x ) - starSize.x/2, -starSize.y)
+	var yLimit = OS.get_window_size().y+starSize.y
 	toSpawn.create( starSpeed, starColor, starSize, initPosition, yLimit )
 	add_child( toSpawn )
 	timer.set_wait_time(rand_range(spawnDelay.x, spawnDelay.y))

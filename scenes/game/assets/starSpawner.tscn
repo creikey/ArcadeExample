@@ -3,14 +3,14 @@
 [ext_resource path="res://scenes/game/starSpawner.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/assets/star.tscn" type="PackedScene" id=2]
 
-[node name="starSpawner" type="Node2D" index="0"]
+[node name="starSpawner" type="Node2D"]
 
 script = ExtResource( 1 )
 star = ExtResource( 2 )
 spawnDelay = Vector2( 2, 3 )
 spawnSizeRange = Vector2( 0.75, 1.5 )
 spawnColorRange = Vector2( 0.2, 1 )
-starSize = Vector2( 25, 100 )
+starBaseSize = Vector2( 50, 100 )
 starSpeedRange = Vector2( 1, 2 )
 
 
