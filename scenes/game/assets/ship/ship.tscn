@@ -19,7 +19,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 50, 25 )
 
-[node name="ship" type="KinematicBody2D"]
+[node name="ship" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
