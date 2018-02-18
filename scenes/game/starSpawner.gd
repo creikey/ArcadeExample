@@ -48,8 +48,3 @@ func _spawnStar():
 	add_child( toSpawn )
 	timer.set_wait_time(rand_range(spawnDelay.x, spawnDelay.y))
 	timer.start()
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
