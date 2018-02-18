@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
-[ext_resource path="res://scenes/game/assets/starSpawner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/game/assets/ship/ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game/assets/enemy/enemySpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game/assets/starSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game/assets/ship/ship.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -21,7 +22,11 @@ b = Vector2( 600, 800 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="starSpawner" parent="." index="0" instance=ExtResource( 2 )]
+[node name="enemySpawner" parent="." index="0" instance=ExtResource( 2 )]
+
+ship = NodePath("../ship")
+
+[node name="starSpawner" parent="." index="1" instance=ExtResource( 3 )]
 
 _sections_unfolded = [ "Transform" ]
 spawnDelay = Vector2( 0.01, 0.01 )
@@ -29,13 +34,13 @@ spawnColorRange = Vector2( 0.8, 1 )
 starBaseSize = Vector2( 5, 10 )
 starSpeedRange = Vector2( 10, 20 )
 
-[node name="ship" parent="." index="1" instance=ExtResource( 3 )]
+[node name="ship" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 238.16, 666.245 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="borderLeft" type="StaticBody2D" parent="." index="2"]
+[node name="borderLeft" type="StaticBody2D" parent="." index="3"]
 
 input_pickable = false
 collision_layer = 1
@@ -49,7 +54,7 @@ bounce = 0.0
 
 shape = SubResource( 1 )
 
-[node name="borderRight" type="StaticBody2D" parent="." index="3"]
+[node name="borderRight" type="StaticBody2D" parent="." index="4"]
 
 input_pickable = false
 collision_layer = 1
