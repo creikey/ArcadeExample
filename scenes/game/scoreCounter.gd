@@ -1,8 +1,8 @@
 extends Label
 
 func _ready():
-	set_text("Score: " + str(score.getScore()))
+	set_text(str(score.getScore()))
 	score.connect("scoreChanged", self, "onScoreChange")
 
 func onScoreChange(inScore):
-	set_text("Score: " + str(inScore))
+	set_text(str(inScore))
