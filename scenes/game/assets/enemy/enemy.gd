@@ -49,6 +49,8 @@ func _process(delta):
 	move_and_collide(Vector2(curSpeed,yAccel))
 	# If it's out of bounds...
 	if(get_position().y > OS.get_window_size().y):
+		# Add more score
+		score.setScore(score.getScore()+1)
 		# Destroy itself!
 		queue_free()
 

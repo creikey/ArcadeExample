@@ -14,6 +14,10 @@ config/name="ArcadeExample"
 run/main_scene="res://scenes/game/game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+score="*res://scenes/score.gd"
+
 [display]
 
 window/size/width=600
