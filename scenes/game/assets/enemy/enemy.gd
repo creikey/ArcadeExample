@@ -22,7 +22,7 @@ var yAccel
 func _ready():
 	pass
 
-func create(toFollow, inMoveSpeed=0.1, inMaxAccel=10.0, inDampening=1.0, inYAccel=5.0):
+func create(toFollow, inMoveSpeed, inMaxAccel, inDampening, inYAccel):
 	player = toFollow
 	moveSpeed = inMoveSpeed
 	maxAccel = inMaxAccel
