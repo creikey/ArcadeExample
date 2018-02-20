@@ -18,7 +18,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 18.0557, 23.049 )
 
-[node name="enemy" type="KinematicBody2D" index="0" groups=[
+[node name="enemy" type="KinematicBody2D" groups=[
 "enemies",
 ]]
 
@@ -36,6 +36,7 @@ __meta__ = {
 scale = Vector2( 1, 1 )
 frames = SubResource( 1 )
 animation = "move"
+frame = 1
 playing = true
 
 [node name="enemyCollider" type="CollisionShape2D" parent="." index="1"]

@@ -27,7 +27,7 @@ custom_solver_bias = 0.0
 a = Vector2( 600, 0 )
 b = Vector2( 600, 800 )
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -57,14 +57,21 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 [node name="enemySpawner" parent="." index="1" instance=ExtResource( 4 )]
 
 ship = NodePath("../ship")
+waitTimeDelta = -0.05
+baseWaitTime = 1.0
+minWaitTime = 0.5
+shipSpeed = 0.05
+shipMaxAccel = 15.0
+shipDampening = 1.0
+shipYAccel = 8.0
 
 [node name="starSpawner" parent="." index="2" instance=ExtResource( 5 )]
 
 _sections_unfolded = [ "Transform" ]
-spawnDelay = Vector2( 0.01, 0.01 )
+spawnDelay = Vector2( 0.001, 0.01 )
 spawnColorRange = Vector2( 0.8, 1 )
-starBaseSize = Vector2( 5, 10 )
-starSpeedRange = Vector2( 10, 20 )
+starBaseSize = Vector2( 4, 6 )
+starSpeedRange = Vector2( 6, 8 )
 
 [node name="ship" parent="." index="3" instance=ExtResource( 6 )]
 
