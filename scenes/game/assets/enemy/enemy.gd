@@ -66,7 +66,7 @@ func subtractCurSpeed(inCurSpeed, damp):
 
 # Get movement direction based on player position
 func getMovementDirection(plyr):
-	if( plyr.get_position().x+plyr.get_sprite_size()/2+$enemySprite.get_sprite_frames().get_frame("move",0).get_width()  > get_position().x ):
+	if( plyr.get_position().x+plyr.get_sprite_size().x/2+$enemySprite.get_sprite_frames().get_frame("move",0).get_width()  > get_position().x ):
 		return direction.LEFT
 	else:
 		return direction.RIGHT

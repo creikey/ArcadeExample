@@ -1,5 +1,14 @@
 extends KinematicBody2D
 
+
+# Bullet node
+export (PackedScene) var bullet
+# Bullet speed
+export var bulletSpeed = 1.0
+# Bullet initial size
+export var bulletInitSize = 1.0
+# Bullet size delta
+export var bulletSizeDelta = Vector2(-0.01, -0.01)
 # Movespeed
 export var moveSpeed = 10.0
 
@@ -24,6 +33,14 @@ func _process(delta):
 	if( Input.is_action_pressed("ui_right") ):
 		move_and_collide(Vector2(moveSpeed,0))
 		sprite.set_frame(2)
+	# Shoot a bullet if need be
+	if( Input.is_action_pressed("ui_attack") ):
+		var shipSpriteSize = $shipSprite.get_sprite_frames().get_frame("move", 0).get_size()
+		var bl = bullet.instance()
+		# bl.set_position(get_position()+shipSpriteSize/2-Vector2(0, shipSpriteSize.y))
+		bl.set_position(Vector2(300,300))
+		bl.create(Vector2(0,bulletSpeed), bulletInitSize, bulletSizeDelta)
+		add_child(bl)
 
 # Manages entry
 func body_enter(obj):
@@ -33,4 +50,4 @@ func body_enter(obj):
 
 # Returns player's size
 func get_sprite_size():
-	return $shipSprite.get_sprite_frames().get_frame("move", 0).get_width()
+	return $shipSprite.get_sprite_frames().get_frame("move", 0).get_size()
